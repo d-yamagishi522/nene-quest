@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4">
+  <div>
     <div v-if="start">
       <TheTitle />
       <div class="text-xl text-center">
@@ -20,13 +20,41 @@
           :side="side"
           :vertical="vertical"
         />
-        <div>
-          <button
-            v-longclick="() => changeValue(5)"
-            @click="changeValue(5)"
-          >
-            右
-          </button>
+        <div class="btn-box">
+          <div class="flex justify-center">
+            <button
+              class="btn-top btn"
+              v-longclick="() => moveTop()"
+              @click="moveTop()"
+            >
+              上
+            </button>
+          </div>
+          <div class="mt-10px flex justify-center">
+            <button
+              class="btn-left btn"
+              v-longclick="() => moveLeft()"
+              @click="moveLeft()"
+            >
+              左
+            </button>
+            <button
+              class="btn-right btn"
+              v-longclick="() => moveRight()"
+              @click="moveRight()"
+            >
+              右
+            </button>
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="btn-bottom btn mt-10px"
+              v-longclick="() => moveBottom()"
+              @click="moveBottom()"
+            >
+              下
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -44,7 +72,7 @@ export default {
   },
   data() {
     return {
-      start: true,
+      start: false,
       side: 50,
       vertical: 50,
     }
@@ -53,9 +81,45 @@ export default {
     startGame() {
       this.start = false
     },
-    changeValue(amount) {
-      this.side = this.side + amount
+    moveRight() {
+      this.side = this.side + 5 // 右に5移動する
     },
-  },
+    moveTop() {
+      this.vertical = this.vertical - 5 // 上に5移動する
+    },
+    moveBottom() {
+      this.vertical = this.vertical + 5 // 下に5移動する
+    },
+    moveLeft() {
+      this.vertical = this.vertical - 5 // 左に5移動する
+    }
+  }
 }
 </script>
+
+<style scoped>
+.btn-box {
+  position: absolute;
+  background-color: brown;
+  right: 20px;
+  bottom: 20px;
+  width: 240px;
+  height: 140px;
+}
+.btn {
+  width: 80px;
+  height: 40px;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  background-color: burlywood;
+}
+.btn-top {
+
+}
+.btn-right {
+  margin-left: 30px;
+}
+.mt-10px {
+  margin-top: 10px;
+}
+</style>
