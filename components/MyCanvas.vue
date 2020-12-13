@@ -16,7 +16,7 @@ export default {
     vertical: {
       type: Number,
       default: 50,
-    },
+    }
   },
   data() {
     return {
@@ -30,7 +30,7 @@ export default {
     },
     vertical() {
       this.draw(this.side, this.vertical)
-    },
+    }
   },
   mounted() {
     this.ctx = this.$el.getContext('2d')
@@ -44,8 +44,8 @@ export default {
         // 画像, 横移動, 縦移動
         this.ctx.drawImage(img, side, vertical)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

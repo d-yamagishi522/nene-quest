@@ -23,8 +23,8 @@
         <div class="btn-box">
           <div class="flex justify-center">
             <button
-              class="btn-top btn"
               v-longclick="() => moveTop()"
+              class="btn-top btn"
               @click="moveTop()"
             >
               上
@@ -32,15 +32,15 @@
           </div>
           <div class="mt-10px flex justify-center">
             <button
-              class="btn-left btn"
               v-longclick="() => moveLeft()"
+              class="btn-left btn"
               @click="moveLeft()"
             >
               左
             </button>
             <button
-              class="btn-right btn"
               v-longclick="() => moveRight()"
+              class="btn-right btn"
               @click="moveRight()"
             >
               右
@@ -48,8 +48,8 @@
           </div>
           <div class="flex justify-center">
             <button
-              class="btn-bottom btn mt-10px"
               v-longclick="() => moveBottom()"
+              class="btn-bottom btn mt-10px"
               @click="moveBottom()"
             >
               下
@@ -68,7 +68,7 @@ import MyCanvas from '@/components/MyCanvas.vue'
 export default {
   components: {
     TheTitle,
-    MyCanvas,
+    MyCanvas
   },
   data() {
     return {
@@ -114,7 +114,6 @@ export default {
   background-color: burlywood;
 }
 .btn-top {
-
 }
 .btn-right {
   margin-left: 30px;
