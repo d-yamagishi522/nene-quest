@@ -6,9 +6,21 @@ module.exports = {
   head: {
     title: 'nene-quest',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        charset: 'utf-8'
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
+      },
+      {
+        name: 'apple-mobile-web-app-title',
+        content: 'ネネクエスト'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=0',
+      }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -39,19 +51,5 @@ module.exports = {
   modules: [],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
-  meta: [
-    {
-      name: 'apple-mobile-web-app-capable',
-      content: 'yes'
-    },
-    {
-      name: 'apple-mobile-web-app-title',
-      content: 'ネネクエスト'
-    },
-    {
-      name: 'viewport',
-      content: 'width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=0',
-    }
-  ]
+  build: {}
 }
