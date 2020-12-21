@@ -59,6 +59,5 @@ export default {
 .canvas {
   width: 100%;
   height: 100vh;
-  background-color: gray;
 }
 </style>
