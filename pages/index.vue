@@ -17,6 +17,13 @@
     <div v-else>
       <div class="example">
         <MyCanvas
+          class="canvas"
+          :side="side"
+          :vertical="vertical"
+        />
+
+        <EnemyCanvas
+          class="canvas"
           :side="side"
           :vertical="vertical"
         />
@@ -77,6 +84,14 @@ export default {
       vertical: 50,
     }
   },
+  mounted() {
+    // 画面拡大防止用
+    document.body.addEventListener("touchstart", function(e){
+      if (e.touches && e.touches.length > 1) {
+        e.preventDefault()
+      }
+    }, {passive: false})
+  },
   methods: {
     startGame() {
       this.start = false
@@ -85,13 +100,17 @@ export default {
       this.side = this.side + 5 // 右に5移動する
     },
     moveTop() {
-      this.vertical = this.vertical - 5 // 上に5移動する
+      if (this.vertical > 5) {
+        this.vertical = this.vertical - 5 // 上に5移動する
+      }
     },
     moveBottom() {
       this.vertical = this.vertical + 5 // 下に5移動する
     },
     moveLeft() {
-      this.vertical = this.vertical - 5 // 左に5移動する
+      if (this.side > 5) {
+        this.side = this.side - 5 // 左に5移動する
+      }
     }
   }
 }
@@ -99,6 +118,7 @@ export default {
 
 <style scoped>
 .btn-box {
+  z-index: 1;
   position: absolute;
   background-color: brown;
   right: 20px;
@@ -120,5 +140,8 @@ export default {
 }
 .mt-10px {
   margin-top: 10px;
+}
+.canvas {
+  position: absolute;
 }
 </style>
