@@ -107,9 +107,13 @@ export default {
       setTimeout(() => {
         const enemy = {}
         this.enemies.push(enemy)
-        this.interval = 1000 + Math.floor(Math.random() * 9000)
+        const t = performance.now()
+        if (Math.floor((t - this.time) / 1000) > 30) {
+          this.interval = 1500
+        } else {
+          this.interval = 1000 + Math.floor(Math.random() * 9000)
+        }
         if (this.start) {
-          console.log('koko')
           this.roop()
         }
       }, this.interval)
@@ -131,7 +135,9 @@ export default {
       }
     },
     moveBottom() {
-      this.vertical = this.vertical + 5 // 下に5移動する
+      if (this.vertical < 350) {
+        this.vertical = this.vertical + 5 // 下に5移動する
+      }
     },
     moveLeft() {
       if (this.side > 5) {

@@ -26,7 +26,6 @@ export default {
   watch: {
     side() {
       this.draw(this.side, this.vertical)
-      this.ctx.clearRect(0, 0, 1000, 1000)
     },
     vertical() {
       this.draw(this.side, this.vertical)

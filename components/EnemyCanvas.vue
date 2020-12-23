@@ -46,7 +46,7 @@ export default {
         } else {
           const img = new Image()
           // 5移動するたびに画像を入れ替える
-          if (((enemy.side + 500) / 5) % 10 < 5) {
+          if (((enemy.side + 500) / 5) % 20 < 10) {
             img.src = require('@/assets/icons/enemy1.png')
           } else {
             img.src = require('@/assets/icons/enemy2.png')
@@ -56,7 +56,7 @@ export default {
             // 画像, 横移動, 縦移動
             this.ctx.drawImage(img, enemy.side, enemy.vertical)
           }
-          enemy.side = enemy.side - 5
+          enemy.side = enemy.side - 10
           // 画面外に出たら削除
           if (enemy.side < -300) {
             enemy.ctx.clearRect(0, 0, 1000, 600)
