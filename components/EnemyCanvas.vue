@@ -39,7 +39,7 @@ export default {
       const id = setInterval(() => {
         const num = this.abs(enemy.side)
         // あたり判定
-        if (num < 5000 && this.vertical - 100 < enemy.vertical && enemy.vertical < this.vertical + 100 && this.side < enemy.side) {
+        if (num < 5000 && this.vertical - 70 < enemy.vertical && enemy.vertical < this.vertical + 150 && this.side < enemy.side) {
           this.$emit('stopGame')
           enemy.ctx.clearRect(0, 0, 1000, 600)
           clearInterval(id)

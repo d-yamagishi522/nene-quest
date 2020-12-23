@@ -2,7 +2,7 @@
   <div class="flex justify-center mt-8 mb-2">
     <img
       src="@/assets/icons/title.png"
-      width="60%"
+      width="50%"
     >
   </div>
 </template>

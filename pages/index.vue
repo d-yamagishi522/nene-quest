@@ -81,7 +81,7 @@ export default {
       vertical: 50,
       enemies: [],
       game: null,
-      interval: 1000,
+      interval: 0,
       time: 0
     }
   },
@@ -95,6 +95,9 @@ export default {
   },
   methods: {
     startGame() {
+      this.side = 50
+      this.vertical = 50
+      this.enemies = []
       this.start = true
       this.time = performance.now()
       this.score = 0
@@ -102,13 +105,11 @@ export default {
     },
     roop() {
       setTimeout(() => {
-        const enemy = {
-          side: 0,
-          vertical: 0
-        }
+        const enemy = {}
         this.enemies.push(enemy)
         this.interval = 1000 + Math.floor(Math.random() * 9000)
         if (this.start) {
+          console.log('koko')
           this.roop()
         }
       }, this.interval)
