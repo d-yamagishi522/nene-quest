@@ -32,7 +32,7 @@ export default {
       const ctx = this.$el.getContext('2d')
       const enemy = {
         ctx,
-        side: 400,
+        side: 1000,
         vertical,
       }
       // 右移動の処理
@@ -40,12 +40,13 @@ export default {
         const num = this.abs(enemy.side)
         // あたり判定
         if (num < 5000 && this.vertical - 100 < enemy.vertical && enemy.vertical < this.vertical + 100 && this.side < enemy.side) {
+          this.$emit('stopGame')
           enemy.ctx.clearRect(0, 0, 1000, 600)
           clearInterval(id)
         } else {
           const img = new Image()
           // 5移動するたびに画像を入れ替える
-          if (((enemy.side) / 5) % 10 < 5) {
+          if (((enemy.side + 500) / 5) % 10 < 5) {
             img.src = require('@/assets/icons/enemy1.png')
           } else {
             img.src = require('@/assets/icons/enemy2.png')

@@ -1,14 +1,11 @@
 <template>
-  <div class="title">
-    <div>NENE</div>
-    <div>QUEST</div>
+  <div class="flex justify-center mt-8 mb-2">
+    <img
+      src="@/assets/icons/title.png"
+      width="60%"
+    >
   </div>
 </template>
 
 <style scoped>
-.title {
-  text-align: center;
-  height: 250px;
-  background-color: aqua;
-}
 </style>
